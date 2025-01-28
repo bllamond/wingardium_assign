@@ -34,4 +34,4 @@ The app is live! Check it out here: [Deployed Link](https://wingardium-proj.verc
 
 ### Screenshot:
 
-![Dog Image Gallery Preview](#)  
+![Dog Image Gallery Preview](Screenshot.png)  
