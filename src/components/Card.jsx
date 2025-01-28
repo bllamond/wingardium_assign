@@ -17,13 +17,16 @@ const Card = ({ url, onClick, bgColor, onColorChange }) => {
         className="w-full h-64 object-cover cursor-pointer"
         onClick={handleImageClick}
       />
-      <div className="absolute inset-x-0 bottom-0 bg-white bg-opacity-75 p-2 flex justify-between items-center">
+      <div
+        className="absolute inset-x-0 bottom-0 p-2 flex justify-between items-center"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.75)" }}
+      >
         <ColorPicker color={bgColor} onChange={onColorChange} />
         <button
           onClick={handleImageClick}
           className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold hover:bg-blue-600 transition-colors duration-300"
         >
-          View Larger
+          View 
         </button>
       </div>
     </div>
