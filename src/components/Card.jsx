@@ -1,29 +1,31 @@
-import React, { useState } from "react"
+import React from "react"
 import ColorPicker from "./ColorPicker"
 
-const Card = ({ url, onClick }) => {
-  const [bgColor, setBgColor] = useState("#ffffff")
+const Card = ({ url, onClick, bgColor, onColorChange }) => {
+  const handleImageClick = () => {
+    onClick(url)
+  }
 
   return (
     <div
-      className="relative group overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
+      className="relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
       style={{ backgroundColor: bgColor }}
     >
       <img
         src={url || "/placeholder.svg"}
         alt="Dog"
         className="w-full h-64 object-cover cursor-pointer"
-        onClick={onClick}
+        onClick={handleImageClick}
       />
-      <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+      <div className="absolute inset-x-0 bottom-0 bg-white bg-opacity-75 p-2 flex justify-between items-center">
+        <ColorPicker color={bgColor} onChange={onColorChange} />
         <button
-          onClick={onClick}
-          className="bg-white text-gray-800 px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors duration-300"
+          onClick={handleImageClick}
+          className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold hover:bg-blue-600 transition-colors duration-300"
         >
           View Larger
         </button>
       </div>
-      <ColorPicker color={bgColor} onChange={setBgColor} />
     </div>
   )
 }
